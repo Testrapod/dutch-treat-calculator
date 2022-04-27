@@ -1,4 +1,4 @@
-var member_count = 3;
+var member_count = $("#table_member>tbody>tr").length;
 
 function addMember(name) {
     member_count++;
@@ -33,10 +33,14 @@ function reviseMember(obj) {
 }
 
 function deleteMember(obj) {
-    var tds = $(obj).parent().children();
+    $(obj).parent().remove();
 
-    var number = tds.eq(0).text().trim();
-    var name = tds.eq(1).text().trim();
+    member_count = 0;
+    var trs = $("#table_member>tbody>tr");
+    trs.each(function(i) {
+        member_count++;
 
-    console.log(number + " / " + name);
+        var tds = trs.eq(i).children();
+        tds.eq(0).text(member_count);
+    });
 }
