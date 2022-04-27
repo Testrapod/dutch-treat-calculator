@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* font 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+body { font-family: 'Do Hyeon', sans-serif; }
+
+
+/* 시스템 태그 속성 변경 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* bootstrap 코드 */
+.btn:focus { box-shadow: none; }
+.form-check-input:focus { box-shadow: none; }
+
+
+/* pc 화면 */
+h1 {
+    margin: 50px;
+    margin-bottom: 30px;
+    font-size: 45px;
+    font-style: italic;
+}
+footer { margin: 50px; }
+
+
+/* alert */
+@keyframes fadeInUp { /* animation */
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+.custom-alert {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 30%;
+    
+    display: none;
+    animation: fadeInUp 0.4s;
+}
+
+
+/* moblie 화면 */
+@media (max-width: 992px) {
+    h1 { font-size: 38px; }
+
+    .footer-text { font-size: small; }
+}
+@media (max-width: 767px) {
+    .custom-alert {
+        right: 5%;
+        width: 90%;
+    }
+
+    .footer-text { font-size: x-small; }
+}
+@media (max-width: 419px) {
+    h1 { font-size: xx-large; }
+
+    .footer-text { font-size: xx-small; }
+}
