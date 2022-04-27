@@ -19,17 +19,37 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 /* pc 화면 */
-h1 {
+header {
     margin: 50px;
     margin-bottom: 30px;
-    font-size: 45px;
-    font-style: italic;
 }
 footer { margin: 50px; }
 
+.header-text {
+    font-size: 36px;
+    font-style: italic;
+}
+.footer-text { font-size: xx-small; }
+
+.width-layout {
+    left: 5%;
+    width: 90%;
+}
+.title-text-layout {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+.button-layout {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.delete-button { color: #A0A0A0; }
+.delete-button:hover { color: #606060; }
 
 /* alert */
-@keyframes fadeInUp { /* animation */
+@keyframes fadeIn { /* animation */
     0% {
         opacity: 0;
         transform: translate3d(0, 100%, 0);
@@ -42,30 +62,9 @@ footer { margin: 50px; }
 .custom-alert {
     position: fixed;
     bottom: 15px;
-    right: 15px;
-    width: 30%;
+    left: 5%;
+    width: 90%;
     
     display: none;
-    animation: fadeInUp 0.4s;
-}
-
-
-/* moblie 화면 */
-@media (max-width: 992px) {
-    h1 { font-size: 38px; }
-
-    .footer-text { font-size: small; }
-}
-@media (max-width: 767px) {
-    .custom-alert {
-        right: 5%;
-        width: 90%;
-    }
-
-    .footer-text { font-size: x-small; }
-}
-@media (max-width: 419px) {
-    h1 { font-size: xx-large; }
-
-    .footer-text { font-size: xx-small; }
+    animation: fadeIn 0.4s;
 }
