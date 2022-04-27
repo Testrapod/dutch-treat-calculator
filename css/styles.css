@@ -31,6 +31,9 @@ footer { margin: 50px; }
 }
 .footer-text { font-size: xx-small; }
 
+#receipt { display: none; }
+#result { display: none; }
+
 .width-layout {
     left: 5%;
     width: 90%;
@@ -42,11 +45,17 @@ footer { margin: 50px; }
 }
 .button-layout {
     margin-top: 10px;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 }
 
 .delete-button { color: #A0A0A0; }
 .delete-button:hover { color: #606060; }
+
+.left-button { width: 49%; float:left; }
+.right-button { width: 49%; float:right; }
+
+.no-padding { padding: 0px; }
+
 
 /* alert */
 @keyframes fadeIn { /* animation */

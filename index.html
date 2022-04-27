@@ -21,7 +21,7 @@
     </header>
 
     <!-- Member -->
-    <div class="container width-layout">
+    <div id="member" class="container width-layout">
         <div class="row">
             <div class="text-center title-text-layout">Member</div>
             <div id="card_member" class="card">
@@ -60,13 +60,38 @@
                 </div>
             </div>
             <button type="button" class="btn btn-success button-layout" data-bs-toggle="modal" data-bs-target="#addModalMember">Add Member</button>
+            <button id="next_button_member" type="button" class="btn btn-primary button-layout">Next</button>
         </div>
     </div>
 
     <!-- Receipt -->
-    <div class="container">
+    <div id="receipt" class="container width-layout">
         <div class="row">
-            
+            <div class="text-center title-text-layout">Receipt</div>
+            <div id="list_receipt" class="no-padding">
+                <div class="card">
+                    <div class="card-body">
+                        This is a receipt.
+                    </div>
+                </div>
+            </div>
+            <button id="add_button_receipt" type="button" class="btn btn-success button-layout">Add Receipt</button>
+            <div class="no-padding">
+                <button id="prev_button_receipt" type="button" class="btn btn-primary button-layout left-button">Prev</button>
+                <button id="next_button_receipt" type="button" class="btn btn-primary button-layout right-button">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="container width-layout">
+        <div class="row">
+            <div class="text-center title-text-layout">Result</div>
+
+            <div class="no-padding">
+                <button id="prev_button_result" type="button" class="btn btn-primary button-layout left-button">Prev</button>
+                <button id="again_button_result" type="button" class="btn btn-primary button-layout right-button">Again</button>
+            </div>
         </div>
     </div>
 
@@ -145,11 +170,11 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteModalReceipt" tabindex="-1" aria-labelledby="deleteModalLabelReceipt" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+                    <h5 class="modal-title" id="deleteModalLabelReceipt">Delete</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -157,7 +182,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="delete_button" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Delete</button>
+                    <button id="delete_button_receipt" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Delete</button>
                 </div>
             </div>
         </div>
