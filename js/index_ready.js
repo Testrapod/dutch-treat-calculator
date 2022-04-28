@@ -14,6 +14,24 @@ $(document).ready(function () {
 
     // next (member)
     $("#next_button_member").click(function() {
+        $("#checkbox_list_receipt>div").remove();
+        var checkbox_list = $("#checkbox_list_receipt");
+
+        var trs = $("#table_member>tbody>tr");
+        trs.each(function(i) {
+            var tds = trs.eq(i).children();
+            var name = tds.eq(1).text().trim();
+            
+            var tagContent = 
+                '<div class="form-check">' +
+                    '<input name="participants_input" class="form-check-input" type="checkbox" checked>' +
+                    '<label name="participants_label" class="form-check-label">' + name + '</label>'
+                '</div>';
+        
+            checkbox_list.append(tagContent);
+        });
+        console.log(receipt_count);
+
         $("#member").hide();
         $("#receipt").show();
     });
@@ -23,10 +41,10 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////
     // add receipt
     $("#add_button_receipt").click(function() {
-        console.log("add receipt");
+        addReceipt();
 
-        // $("#alert_add_success").show();
-        // setTimeout(function() { $("#alert_add_success").fadeOut(); }, 2000);
+        $("#alert_add_success").show();
+        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 2000);
     });
 
     // prev (receipt)

@@ -42,17 +42,17 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td onclick="reviseMember(this);">Mark</td>
+                                <td onclick="reviseMember(this);">양동해</td>
                                 <td class="delete-button" onclick="deleteMember(this);">X</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td onclick="reviseMember(this);">Jacob</td>
+                                <td onclick="reviseMember(this);">윤하은</td>
                                 <td class="delete-button" onclick="deleteMember(this);">X</td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td onclick="reviseMember(this);">Larry</td>
+                                <td onclick="reviseMember(this);">문명균</td>
                                 <td class="delete-button" onclick="deleteMember(this);">X</td>
                             </tr>
                         </tbody>
@@ -69,13 +69,9 @@
         <div class="row">
             <div class="text-center title-text-layout">Receipt</div>
             <div id="list_receipt" class="no-padding">
-                <div class="card">
-                    <div class="card-body">
-                        This is a receipt.
-                    </div>
-                </div>
+                <!-- receipt -->
             </div>
-            <button id="add_button_receipt" type="button" class="btn btn-success button-layout">Add Receipt</button>
+            <button type="button" class="btn btn-success button-layout"  data-bs-toggle="modal" data-bs-target="#addModalReceipt">Add Receipt</button>
             <div class="no-padding">
                 <button id="prev_button_receipt" type="button" class="btn btn-primary button-layout left-button">Prev</button>
                 <button id="next_button_receipt" type="button" class="btn btn-primary button-layout right-button">Next</button>
@@ -125,7 +121,8 @@
             <div>Delete success</div>
         </div>
     </div>
-    <!-- modal -->
+
+    <!-- modal (member) -->
     <div class="modal fade" id="addModalMember" tabindex="-1" aria-labelledby="addModalLabelMember" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -170,6 +167,44 @@
             </div>
         </div>
     </div>
+
+    <!-- modal (receipt) -->
+    <div class="modal fade" id="addModalReceipt" tabindex="-1" aria-labelledby="addModalLabelReceipt" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabelReceipt">Add Receipt</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div>
+                        <label for="add_input_receipt_item" class="col-form-label">Payment item:</label>
+                        <input type="text" class="form-control" id="add_input_receipt_item" value="두마리 찜닭">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="add_input_receipt_payer" class="col-form-label">Payer:</label>
+                            <input type="text" class="form-control" id="add_input_receipt_payer">
+                        </div>
+                        <div class="col">
+                            <label for="add_input_receipt_price" class="col-form-label">Price:</label>
+                            <input type="text" class="form-control" id="add_input_receipt_price">
+                        </div>
+                    </div>
+                    <div id="checkbox_list_receipt" class="mt-3">
+                        <label class="col-form-label">Participants:</label>
+                        <!-- checkbox_list -->
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="add_button_receipt" type="button" class="btn btn-success" data-bs-dismiss="modal">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="deleteModalReceipt" tabindex="-1" aria-labelledby="deleteModalLabelReceipt" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -203,6 +238,7 @@
     <!-- scripts js -->
     <script type="text/javascript" src="js/function.js"></script>
     <script type="text/javascript" src="js/member.js"></script>
+    <script type="text/javascript" src="js/receipt.js"></script>
     <script type="text/javascript" src="js/index_ready.js"></script>
 </body>
 </html>
