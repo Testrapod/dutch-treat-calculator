@@ -11,31 +11,31 @@
     <!-- styles css -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>Dutch Calc</title>
+    <title>더치페이 계산기</title>
 </head>
 <body>
     <!-- title -->
     <header id="title">
-        <h1 class="text-center header-text">Dutch Calc</h1>
+        <h1 class="text-center header-text">더치페이 계산기</h1>
         <!-- <img id="logo" src="img/title/[file name]"/> -->
     </header>
 
     <!-- Member -->
     <div id="member" class="container width-layout">
         <div class="row">
-            <div class="text-center title-text-layout">Member</div>
+            <div class="text-center title-text-layout">인원</div>
             <div id="card_member" class="card">
                 <div class="card-body">
                     <table id="table_member" class="table table-hover text-center">
                         <colgroup>
-                            <col style="width:10%;">
-                            <col style="width:80%;">
-                            <col style="width:10%;">
+                            <col style="width:16%;">
+                            <col style="width:68%;">
+                            <col style="width:16%;">
                         </colgroup>
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
+                                <th scope="col">번호</th>
+                                <th scope="col">이름</th>
                                 <th scope="col"> </th>
                           </tr>
                         </thead>
@@ -59,22 +59,22 @@
                     </table>
                 </div>
             </div>
-            <button type="button" class="btn btn-success button-layout" data-bs-toggle="modal" data-bs-target="#addModalMember">Add Member</button>
-            <button id="next_button_member" type="button" class="btn btn-primary button-layout">Next</button>
+            <button type="button" class="btn btn-success button-layout" data-bs-toggle="modal" data-bs-target="#addModalMember">인원 추가하기</button>
+            <button id="next_button_member" type="button" class="btn btn-primary button-layout">다음</button>
         </div>
     </div>
 
     <!-- Receipt -->
     <div id="receipt" class="container width-layout">
         <div class="row">
-            <div class="text-center title-text-layout">Receipt</div>
+            <div class="text-center title-text-layout">영수증</div>
             <div id="list_receipt" class="no-padding">
                 <!-- receipt -->
             </div>
-            <button type="button" class="btn btn-success button-layout"  data-bs-toggle="modal" data-bs-target="#addModalReceipt">Add Receipt</button>
+            <button type="button" class="btn btn-success button-layout"  data-bs-toggle="modal" data-bs-target="#addModalReceipt">영수증 추가하기</button>
             <div class="no-padding">
-                <button id="prev_button_receipt" type="button" class="btn btn-primary button-layout left-button">Prev</button>
-                <button id="next_button_receipt" type="button" class="btn btn-primary button-layout right-button">Next</button>
+                <button id="prev_button_receipt" type="button" class="btn btn-primary button-layout left-button">이전</button>
+                <button id="next_button_receipt" type="button" class="btn btn-primary button-layout right-button">계산하기</button>
             </div>
         </div>
     </div>
@@ -82,11 +82,11 @@
     <!-- Result -->
     <div id="result" class="container width-layout">
         <div class="row">
-            <div class="text-center title-text-layout">Result</div>
+            <div class="text-center title-text-layout">결과</div>
 
             <div class="no-padding">
-                <button id="prev_button_result" type="button" class="btn btn-primary button-layout left-button">Prev</button>
-                <button id="again_button_result" type="button" class="btn btn-primary button-layout right-button">Again</button>
+                <button id="prev_button_result" type="button" class="btn btn-primary button-layout left-button">이전</button>
+                <button id="again_button_result" type="button" class="btn btn-primary button-layout right-button">한번더!</button>
             </div>
         </div>
     </div>
@@ -106,19 +106,19 @@
     <div id="alert_add_success" class="custom-alert">
         <div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div>Add success</div>
+            <div>성공적으로 추가했습니다</div>
         </div>
     </div>
     <div id="alert_revise_success" class="custom-alert">
         <div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div>Revise success</div>
+            <div>성공적으로 변경됐습니다</div>
         </div>
     </div>
     <div id="alert_delete_success" class="custom-alert">
         <div class="alert alert-success d-flex align-items-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div>Delete success</div>
+            <div>성공적으로 삭제됐습니다</div>
         </div>
     </div>
 
@@ -127,20 +127,20 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabelMember">Add Member</h5>
+                    <h5 class="modal-title" id="addModalLabelMember">인원 추가하기</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="add_input_member" class="col-form-label">Name:</label>
+                        <label for="add_input_member" class="col-form-label">이름:</label>
                         <input type="text" class="form-control" id="add_input_member">
                     </div>
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="add_button_member" type="button" class="btn btn-success" data-bs-dismiss="modal">Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button id="add_button_member" type="button" class="btn btn-success" data-bs-dismiss="modal">추가</button>
                 </div>
             </div>
         </div>
@@ -149,20 +149,20 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="reviseModalLabelMember">Revise Member</h5>
+                    <h5 class="modal-title" id="reviseModalLabelMember">이름 수정하기</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="revise_input_member" class="col-form-label">Name:</label>
+                        <label for="revise_input_member" class="col-form-label">이름:</label>
                         <input type="text" class="form-control" id="revise_input_member">
                     </div>
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="revise_button_member" type="button" class="btn btn-success" data-bs-dismiss="modal">Revise</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button id="revise_button_member" type="button" class="btn btn-success" data-bs-dismiss="modal">수정</button>
                 </div>
             </div>
         </div>
@@ -173,34 +173,37 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabelReceipt">Add Receipt</h5>
+                    <h5 class="modal-title" id="addModalLabelReceipt">영수증 추가하기</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form>
                     <div>
-                        <label for="add_input_receipt_item" class="col-form-label">Payment item:</label>
+                        <label for="add_input_receipt_item" class="col-form-label">결제 아이템 (ex. 장소, 물건):</label>
                         <input type="text" class="form-control" id="add_input_receipt_item" value="두마리 찜닭">
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label for="add_input_receipt_payer" class="col-form-label">Payer:</label>
-                            <input type="text" class="form-control" id="add_input_receipt_payer">
+                            <label for="add_input_receipt_payer" class="col-form-label">결제자:</label>
+                            <!-- <input type="text" class="form-control" id="add_input_receipt_payer"> -->
+                            <select id="select_list_receipt" class="form-select" aria-label="Default select example">
+                                <!-- select_list -->
+                            </select>
                         </div>
                         <div class="col">
-                            <label for="add_input_receipt_price" class="col-form-label">Price:</label>
+                            <label for="add_input_receipt_price" class="col-form-label">금액:</label>
                             <input type="text" class="form-control" id="add_input_receipt_price">
                         </div>
                     </div>
                     <div id="checkbox_list_receipt" class="mt-3">
-                        <label class="col-form-label">Participants:</label>
+                        <label class="col-form-label">참여자:</label>
                         <!-- checkbox_list -->
                     </div>
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="add_button_receipt" type="button" class="btn btn-success" data-bs-dismiss="modal">Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button id="add_button_receipt" type="button" class="btn btn-success" data-bs-dismiss="modal">추가</button>
                 </div>
             </div>
         </div>
@@ -226,7 +229,7 @@
     <!-- footer -->
     <footer>
         <p class="text-center footer-text">
-            We are conducting a survey on this site. I would really appreciate it if you could fill out the questionnaire after using this app.<br>
+            아래 링크로 들어가서 설문조사를 진행해주신다면 앱의 개선에 큰 도움이 됩니다.<br>
             <a href="#">Go to the link</a>
         </p>
     </footer>

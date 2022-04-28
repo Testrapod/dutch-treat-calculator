@@ -14,6 +14,11 @@ $(document).ready(function () {
 
     // next (member)
     $("#next_button_member").click(function() {
+        // select_list
+        $("#select_list_receipt").empty();
+        var select_list = $("#select_list_receipt");
+
+        // checkbox_list
         $("#checkbox_list_receipt>div").remove();
         var checkbox_list = $("#checkbox_list_receipt");
 
@@ -21,16 +26,19 @@ $(document).ready(function () {
         trs.each(function(i) {
             var tds = trs.eq(i).children();
             var name = tds.eq(1).text().trim();
+
+            // select_list
+            var tagContent = '<option value="' + name + '">' + name + '</option>'
+            select_list.append(tagContent);
             
-            var tagContent = 
+            // checkbox_list
+            tagContent = 
                 '<div class="form-check">' +
                     '<input name="participants_input" class="form-check-input" type="checkbox" checked>' +
                     '<label name="participants_label" class="form-check-label">' + name + '</label>'
                 '</div>';
-        
             checkbox_list.append(tagContent);
         });
-        console.log(receipt_count);
 
         $("#member").hide();
         $("#receipt").show();

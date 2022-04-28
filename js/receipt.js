@@ -2,7 +2,7 @@ var receipt_count = $("#list_receipt>div").length;
 
 function addReceipt() {
     var item = $("#add_input_receipt_item").val();
-    var payer = $("#add_input_receipt_payer").val();
+    var payer = $("#select_list_receipt").val();
     var price = $("#add_input_receipt_price").val();
 
     var names = []; var participants = [];
@@ -12,8 +12,11 @@ function addReceipt() {
 
     receipt_count++;
 
+    var marginTop = "";
+    if(receipt_count > 1) marginTop = "mt-2";
+
     var tagContent =
-        '<div class="card">' +
+        '<div class="card ' + marginTop + '">' +
             '<h5 class="card-header">' + item + '</h5>' +
             '<div class="card-body">' +
                 '<h5 class="card-title">Payer: <span>' + payer + '</span></h5>' +
