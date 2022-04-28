@@ -57,6 +57,8 @@ $(document).ready(function () {
 
     // prev (receipt)
     $("#prev_button_receipt").click(function() {
+        $("#list_receipt").empty();
+
         $("#receipt").hide();
         $("#member").show();
     });

@@ -73,7 +73,7 @@
             </div>
             <button type="button" class="btn btn-success button-layout"  data-bs-toggle="modal" data-bs-target="#addModalReceipt">영수증 추가하기</button>
             <div class="no-padding">
-                <button id="prev_button_receipt" type="button" class="btn btn-primary button-layout left-button">이전</button>
+                <button type="button" class="btn btn-primary button-layout left-button" data-bs-toggle="modal" data-bs-target="#prevModalReceipt">이전</button>
                 <button id="next_button_receipt" type="button" class="btn btn-primary button-layout right-button">계산하기</button>
             </div>
         </div>
@@ -208,19 +208,19 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="deleteModalReceipt" tabindex="-1" aria-labelledby="deleteModalLabelReceipt" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="prevModalReceipt" tabindex="-1" aria-labelledby="prevModalLabelReceipt" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabelReceipt">Delete</h5>
+                    <h5 class="modal-title" id="prevModalLabelReceipt">이전</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete it?
+                    이전으로 돌아가면 영수증 내역은 초기화 됩니다. 그래도 진행 하시겠습니까?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="delete_button_receipt" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button id="prev_button_receipt" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">돌아가기</button>
                 </div>
             </div>
         </div>
