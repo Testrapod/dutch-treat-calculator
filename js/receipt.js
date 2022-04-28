@@ -73,8 +73,8 @@ function reviseReceipt(obj) {
         $(obj).children().eq(1).children().eq(5).text(participants.join(" "));
         closeButton();
 
-        $("#alert_revise_success").show();
-        setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 1500);
+        // $("#alert_revise_success").show();
+        // setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 1500);
     });
 
     // delete receipt

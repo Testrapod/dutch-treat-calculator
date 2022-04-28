@@ -26,8 +26,8 @@ function reviseMember(obj) {
         $(obj).text(name);
         closeButton();
 
-        $("#alert_revise_success").show();
-        setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 1500);
+        // $("#alert_revise_success").show();
+        // setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 1500);
     });
 }
 

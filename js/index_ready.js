@@ -15,8 +15,8 @@ $(document).ready(function () {
         var name = $("#add_input_member").val();
         addMember(name);
 
-        $("#alert_add_success").show();
-        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
+        // $("#alert_add_success").show();
+        // setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
     // next (member)
@@ -69,8 +69,8 @@ $(document).ready(function () {
     $("#add_button_receipt").click(function() {
         addReceipt();
 
-        $("#alert_add_success").show();
-        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
+        // $("#alert_add_success").show();
+        // setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
     // prev (receipt)
