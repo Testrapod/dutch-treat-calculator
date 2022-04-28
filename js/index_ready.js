@@ -1,7 +1,7 @@
 /* index.html document ready */
 function closeButton() {
     $("#revise_button_member").off();
-    
+
     $("#revise_button_receipt").off();
     $("#delete_button_receipt").off();
 }
@@ -82,6 +82,8 @@ $(document).ready(function () {
     });
     // next (receipt)
     $("#next_button_receipt").click(function() {
+        if(receipt_count >= 1) calculate();
+
         $("#receipt").hide();
         $("#result").show();
     });
@@ -91,6 +93,8 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////
     // prev (result)
     $("#prev_button_result").click(function() {
+        // result 페이지 초기화 하기
+
         $("#result").hide();
         $("#receipt").show();
     });
