@@ -1,4 +1,11 @@
 /* index.html document ready */
+function closeButton() {
+    $("#revise_button_member").off();
+    
+    $("#revise_button_receipt").off();
+    $("#delete_button_receipt").off();
+}
+
 $(document).ready(function () {
     $("form").submit(function() { return false; });
 
@@ -9,18 +16,22 @@ $(document).ready(function () {
         addMember(name);
 
         $("#alert_add_success").show();
-        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 2000);
+        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
     // next (member)
     $("#next_button_member").click(function() {
         // select_list
-        $("#select_list_receipt").empty();
-        var select_list = $("#select_list_receipt");
+        $("#add_select_list_receipt").empty();
+        $("#revise_select_list_receipt").empty();
+        var add_select_list = $("#add_select_list_receipt");
+        var revise_select_list = $("#revise_select_list_receipt");
 
         // checkbox_list
-        $("#checkbox_list_receipt>div").remove();
-        var checkbox_list = $("#checkbox_list_receipt");
+        $("#add_checkbox_list_receipt>div").remove();
+        $("#revise_checkbox_list_receipt>div").remove();
+        var add_checkbox_list = $("#add_checkbox_list_receipt");
+        var revise_checkbox_list = $("#revise_checkbox_list_receipt");
 
         var trs = $("#table_member>tbody>tr");
         trs.each(function(i) {
@@ -29,15 +40,22 @@ $(document).ready(function () {
 
             // select_list
             var tagContent = '<option value="' + name + '">' + name + '</option>'
-            select_list.append(tagContent);
+            add_select_list.append(tagContent);
+            revise_select_list.append(tagContent);
             
             // checkbox_list
             tagContent = 
                 '<div class="form-check">' +
-                    '<input name="participants_input" class="form-check-input" type="checkbox" checked>' +
-                    '<label name="participants_label" class="form-check-label">' + name + '</label>'
+                    '<input name="add_participants_input" class="form-check-input" type="checkbox" checked>' +
+                    '<label name="add_participants_label" class="form-check-label">' + name + '</label>'
                 '</div>';
-            checkbox_list.append(tagContent);
+            add_checkbox_list.append(tagContent);
+            tagContent = 
+                '<div class="form-check">' +
+                    '<input name="revise_participants_input" class="form-check-input" type="checkbox">' +
+                    '<label name="revise_participants_label" class="form-check-label">' + name + '</label>'
+                '</div>';
+            revise_checkbox_list.append(tagContent);
         });
 
         $("#member").hide();
@@ -52,7 +70,7 @@ $(document).ready(function () {
         addReceipt();
 
         $("#alert_add_success").show();
-        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 2000);
+        setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
     // prev (receipt)

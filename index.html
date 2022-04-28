@@ -128,7 +128,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addModalLabelMember">인원 추가하기</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton();"></button>
                 </div>
                 <div class="modal-body">
                 <form>
@@ -139,7 +139,7 @@
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton();">닫기</button>
                     <button id="add_button_member" type="button" class="btn btn-success" data-bs-dismiss="modal">추가</button>
                 </div>
             </div>
@@ -150,7 +150,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="reviseModalLabelMember">이름 수정하기</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton();"></button>
                 </div>
                 <div class="modal-body">
                 <form>
@@ -161,7 +161,7 @@
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton();">닫기</button>
                     <button id="revise_button_member" type="button" class="btn btn-success" data-bs-dismiss="modal">수정</button>
                 </div>
             </div>
@@ -174,19 +174,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addModalLabelReceipt">영수증 추가하기</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton();"></button>
                 </div>
                 <div class="modal-body">
                 <form>
                     <div>
                         <label for="add_input_receipt_item" class="col-form-label">결제 아이템 (ex. 장소, 물건):</label>
-                        <input type="text" class="form-control" id="add_input_receipt_item" value="두마리 찜닭">
+                        <input type="text" class="form-control" id="add_input_receipt_item">
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="add_input_receipt_payer" class="col-form-label">결제자:</label>
-                            <!-- <input type="text" class="form-control" id="add_input_receipt_payer"> -->
-                            <select id="select_list_receipt" class="form-select" aria-label="Default select example">
+                            <select id="add_select_list_receipt" class="form-select" aria-label="Default select example">
                                 <!-- select_list -->
                             </select>
                         </div>
@@ -195,15 +194,54 @@
                             <input type="text" class="form-control" id="add_input_receipt_price">
                         </div>
                     </div>
-                    <div id="checkbox_list_receipt" class="mt-3">
+                    <div id="add_checkbox_list_receipt" class="mt-3">
                         <label class="col-form-label">참여자:</label>
                         <!-- checkbox_list -->
                     </div>
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton();">닫기</button>
                     <button id="add_button_receipt" type="button" class="btn btn-success" data-bs-dismiss="modal">추가</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="reviseModalReceipt" tabindex="-1" aria-labelledby="reviseModalLabelReceipt" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reviseModalLabelReceipt">영수증 수정하기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton();"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div>
+                        <label for="revise_input_receipt_item" class="col-form-label">결제 아이템 (ex. 장소, 물건):</label>
+                        <input type="text" class="form-control" id="revise_input_receipt_item">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="revise_input_receipt_payer" class="col-form-label">결제자:</label>
+                            <select id="revise_select_list_receipt" class="form-select" aria-label="Default select example">
+                                <!-- select_list -->
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="revise_input_receipt_price" class="col-form-label">금액:</label>
+                            <input type="text" class="form-control" id="revise_input_receipt_price">
+                        </div>
+                    </div>
+                    <div id="revise_checkbox_list_receipt" class="mt-3">
+                        <label class="col-form-label">참여자:</label>
+                        <!-- checkbox_list -->
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton();">닫기</button>
+                    <button id="delete_button_receipt" type="button" class="btn btn-danger" data-bs-dismiss="modal">삭제</button>
+                    <button id="revise_button_receipt" type="button" class="btn btn-success" data-bs-dismiss="modal">수정</button>
                 </div>
             </div>
         </div>
