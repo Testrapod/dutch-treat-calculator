@@ -1,5 +1,7 @@
 /* index.html document ready */
 $(document).ready(function () {
+    $("form").submit(function() { return false; });
+
     ////////////////////////////////////////////////////////////////////////////////
     // add member
     $("#add_button_member").click(function() {

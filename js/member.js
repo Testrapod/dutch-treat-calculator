@@ -24,11 +24,10 @@ function reviseMember(obj) {
     $("#revise_button_member").click(function() {
         name = $("#revise_input_member").val();
         $(obj).text(name);
+        $("#revise_button_member").off();
 
         $("#alert_revise_success").show();
         setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 2000);
-
-        $("#revise_button_member").off();
     });
 }
 
