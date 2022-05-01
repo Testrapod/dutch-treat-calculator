@@ -55,6 +55,7 @@
                                 <td onclick="reviseMember(this);">문명균</td>
                                 <td class="delete-button" onclick="deleteMember(this);">X</td>
                             </tr>
+                            <!-- member -->
                         </tbody>
                     </table>
                 </div>
@@ -85,7 +86,26 @@
             <div class="text-center title-text-layout">송금표</div>
             <div id="card_result" class="card">
                 <div class="card-body">
-                    계산할 영수증이 없습니다 ㅠ..
+                    <span id="no_result">계산할 영수증이 없습니다 ㅠ..</span>
+                    <table id="table_result" class="table table-hover text-center">
+                        <colgroup>
+                            <col style="width:16%;">
+                            <col style="width:28%;">
+                            <col style="width:28%;">
+                            <col style="width:28%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">번호</th>
+                                <th scope="col">송금자</th>
+                                <th scope="col">수신자</th>
+                                <th scope="col">금액</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!-- transactions -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="no-padding">

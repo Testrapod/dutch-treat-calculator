@@ -82,7 +82,14 @@ $(document).ready(function () {
     });
     // next (receipt)
     $("#next_button_receipt").click(function() {
-        if(receipt_count >= 1) calculate();
+        if(receipt_count >= 1) {
+            calculate();
+            $("#no_result").hide();
+            $("#table_result").show();
+        } else {
+            $("#table_result").hide();
+            $("#no_result").show();
+        }
 
         $("#receipt").hide();
         $("#result").show();

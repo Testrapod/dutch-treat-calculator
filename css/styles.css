@@ -33,6 +33,7 @@ footer { margin: 50px; }
 
 #receipt { display: none; }
 #result { display: none; }
+#table_result { display: none; }
 
 .width-layout {
     left: 5%;
