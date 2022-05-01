@@ -1,10 +1,10 @@
 var members = [];
 var receipts = [];
 
-var Transaction = function(sender, receiver, money) {
+var Transaction = function(sender, receiver, price) {
     this.sender = sender;
     this.receiver = receiver;
-    this.money = money;
+    this.price = price;
 }
 
 function dataGetting() {
@@ -52,7 +52,7 @@ function dataSetting(transactions) {
                         '<td rowspan="' + count + '">' + (members.indexOf(sender)+1) + '</td>' +
                         '<td>' + sender + '</td>' +
                         '<td>' + transactions[i].receiver + '</td>' +
-                        '<td>' + transactions[i].money + '</td>' +
+                        '<td>' + transactions[i].price + '</td>' +
                     '</tr>';
                 samePersonCount--;
             } else { // 같은 사람 (두번째 이후 나온 경우)
@@ -60,7 +60,7 @@ function dataSetting(transactions) {
                     '<tr>' +
                         '<td>' + sender + '</td>' +
                         '<td>' + transactions[i].receiver + '</td>' +
-                        '<td>' + transactions[i].money + '</td>' +
+                        '<td>' + transactions[i].price + '</td>' +
                     '</tr>';
                 samePersonCount--;
             }
@@ -71,11 +71,29 @@ function dataSetting(transactions) {
                     '<td>' + (members.indexOf(sender)+1) + '</td>' +
                     '<td>' + sender + '</td>' +
                     '<td>' + transactions[i].receiver + '</td>' +
-                    '<td>' + transactions[i].money + '</td>' +
+                    '<td>' + transactions[i].price + '</td>' +
                 '</tr>';
         }
         $("#table_result>tbody").append(tagContent);
     }
+}
+
+function txCompare(tx1, tx2) {
+    if(tx1.sender == tx2.sender && tx1.receiver == tx2.receiver) return true;
+    return false;
+}
+
+function transactionSimplify(transactions) {
+    for(var i=0; i<transactions.length; i++) {
+        for(var j=i+1; j<transactions.length; j++) {
+            if(txCompare(transactions[i], transactions[j])) {
+                transactions[i].price += transactions[j].price;
+                transactions[j].price = 0;
+            }
+        }
+    }
+
+    return transactions.filter(tx => tx.price != 0);
 }
 
 function calculate() {
@@ -96,6 +114,7 @@ function calculate() {
     transactions = transactions.sort(function(a, b) {
         return members.indexOf(a.sender) - members.indexOf(b.sender);
     });
+    transactions = transactionSimplify(transactions);
     console.log(transactions);
 
     dataSetting(transactions);

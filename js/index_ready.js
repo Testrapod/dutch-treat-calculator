@@ -100,8 +100,6 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////
     // prev (result)
     $("#prev_button_result").click(function() {
-        // result 페이지 초기화 하기
-
         $("#result").hide();
         $("#receipt").show();
     });
