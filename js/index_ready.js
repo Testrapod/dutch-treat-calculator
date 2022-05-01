@@ -73,6 +73,14 @@ $(document).ready(function () {
         // setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
+    // save receipt
+    $("#save_button_receipt").click(function() {
+        if(receipts.length == 0) { alert("영수증을 먼저 추가해주세요"); return; }
+        html2canvas(document.querySelector("#list_receipt")).then(canvas => {
+            saveImg(canvas.toDataURL('image/png'), "영수증.png");
+        });
+    });
+
     // prev (receipt)
     $("#prev_button_receipt").click(function() {
         $("#list_receipt").empty();
@@ -98,6 +106,14 @@ $(document).ready(function () {
 
 
     ////////////////////////////////////////////////////////////////////////////////
+    // save result
+    $("#save_button_result").click(function() {
+        if(receipts.length == 0) { alert("영수증을 먼저 추가해주세요"); return; }
+        html2canvas(document.querySelector("#card_result")).then(canvas => {
+            saveImg(canvas.toDataURL('image/png'), "송금표.png");
+        });
+    });
+
     // prev (result)
     $("#prev_button_result").click(function() {
         $("#result").hide();
