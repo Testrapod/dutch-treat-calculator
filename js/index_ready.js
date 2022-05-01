@@ -116,10 +116,24 @@ $(document).ready(function () {
 
     // prev (result)
     $("#prev_button_result").click(function() {
+        onceBtnTrigger = true;
+        $("#once_button_result").html("한번으로 송금 끝내기!");
+
         $("#result").hide();
         $("#receipt").show();
     });
-    // again (result)
-    $("#again_button_result").click(function() { location.reload(); });
+    // once (result)
+    var onceBtnTrigger = true;
+    $("#once_button_result").click(function() {
+        if(onceBtnTrigger) {
+            onceBtnTrigger = false;
+            calculateSubsetProb();
+            $("#once_button_result").html("기본 송금표");
+        } else {
+            onceBtnTrigger = true;
+            calculate();
+            $("#once_button_result").html("한번으로 송금 끝내기!");
+        }
+    });
     ////////////////////////////////////////////////////////////////////////////////
 });

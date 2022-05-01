@@ -107,15 +107,105 @@ function calculate() {
         var eachMoney = Math.ceil(receipt.price / receipt.participants.length);
         receipt.participants.forEach(function(participant) {
             if(receipt.payer != participant) transactions.push(new Transaction(participant, receipt.payer, eachMoney));
-        })
-    })
+        });
+    });
     // console.log(transactions);
 
     transactions = transactions.sort(function(a, b) {
         return members.indexOf(a.sender) - members.indexOf(b.sender);
     });
     transactions = transactionSimplify(transactions);
-    console.log(transactions);
+    // console.log(transactions);
+
+    dataSetting(transactions);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function getMaximumSubsets(paidMoney) {
+    var money = [...paidMoney];
+    var subsets = [[]];
+    var result = [];
+
+    for(var i=0; i<money.length; i++) {
+        var len = subsets.length;
+        for(var j=0; j<len; j++) {
+            var subset = [...subsets[j], i];
+            var sum = 0;
+
+            if(subset.length > money.length/2) continue;
+
+            for(var k=0; k<subset.length; ) {
+                if(money[subset[k]] != undefined) { sum += money[subset[k]]; k += 1;}
+                else subset.splice(k, 1);
+            }
+
+            if(sum == 0 && subset.length != 0) {
+                result.push(subset);
+                for(var k=0; k<subset.length; k++) money[subset[k]] = undefined;
+                break;
+            }
+            else subsets.push(subset);
+        }
+    }
+
+    var rest = [];
+    for(var i=0; i<money.length; i++) { if(money[i] != undefined) rest.push(i); }
+    if(rest.length != 0) result.push(rest);
+
+    return result;
+}
+
+function calculateSubsetProb() {
+    dataGetting();
+
+    // subset problem
+    var totalPaidMoney = [];
+    for(var i=0; i<members.length; i++) totalPaidMoney.push(0);
+
+    receipts.forEach(function(receipt) {
+        var payer = receipt.payer;
+        var money = Number(receipt.price);
+        var participants = receipt.participants;
+        
+        var r = money % participants.length;
+        if(r != 0) money += Number(participants.length - r);
+
+        totalPaidMoney[members.indexOf(payer)] -= money;
+        participants.forEach(function(participant) { totalPaidMoney[members.indexOf(participant)] += Math.ceil(money / participants.length); });
+    });
+    // console.log(totalPaidMoney);
+
+    var subsets = getMaximumSubsets(totalPaidMoney);
+    // console.log(subsets);
+
+    var transactions = [];
+    subsets.forEach(function(subset) {
+        var money = [];
+        for(var i=0; i<subset.length; i++) money.push(totalPaidMoney[subset[i]]);
+
+        var root = money.indexOf(Math.min(...money));
+        while(money[root] != 0) {
+            let from, to;
+
+            for(var i=0; i<money.length; i++) {
+                if(from === undefined && money[i] > 0) {
+                    from = i;
+                    if (money[from] <= Math.abs(money[root])) to = root;
+                } else if(to === undefined && money[i] < 0 && i !== root) { to = i; }
+
+                if(from !== undefined && to !== undefined) break;
+            }
+
+            transactions.push(new Transaction(members[subset[from]], members[subset[to]], money[from]));
+            money[to] += money[from];
+            money[from] = 0;
+        }
+    });
+
+    transactions = transactions.sort(function(a, b) { return members.indexOf(a.sender) - members.indexOf(b.sender); });
+    transactions = transactionSimplify(transactions);
+    // console.log(transactions);
 
     dataSetting(transactions);
 }
