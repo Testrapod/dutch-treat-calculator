@@ -21,6 +21,12 @@ $(document).ready(function () {
 
     // next (member)
     $("#next_button_member").click(function() {
+        if(checkMember() != "PASS") {
+            if(checkMember() == "ONE_MEMBER") alert("인원은 두 명 이상 있어야 합니다");
+            else if(checkMember() == "DUPLICATE") alert("중복된 이름을 가진 인원이 존재합니다");
+            return;
+        }
+
         // select_list
         $("#add_select_list_receipt").empty();
         $("#revise_select_list_receipt").empty();
