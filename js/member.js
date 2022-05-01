@@ -1,7 +1,12 @@
 var member_count = $("#table_member>tbody>tr").length;
 
 function addMember(name) {
-    if(isEmpty(name)) { alert("이름은 한 글자 이상이어야 합니다"); return; }
+    if(isEmpty(name)) {
+        $("#alert_message").text("이름은 한 글자 이상이어야 합니다");
+        $("#alert_fail").show();
+        setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
+        return;
+    }
     member_count++;
 
     var tagContent =
@@ -23,14 +28,17 @@ function reviseMember(obj) {
     reviseModalMember.show();
 
     $("#revise_button_member").click(function() {
-        name = $("#revise_input_member").val();
-        if(isEmpty(name)) { alert("이름은 한 글자 이상이어야 합니다"); closeButton(); return; }
-
-        $(obj).text(name);
         closeButton();
 
-        // $("#alert_revise_success").show();
-        // setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 1500);
+        name = $("#revise_input_member").val();
+        if(isEmpty(name)) {
+            $("#alert_message").text("이름은 한 글자 이상이어야 합니다");
+            $("#alert_fail").show();
+            setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
+            return;
+        }
+
+        $(obj).text(name);
     });
 }
 

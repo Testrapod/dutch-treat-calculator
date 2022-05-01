@@ -14,16 +14,16 @@ $(document).ready(function () {
     $("#add_button_member").click(function() {
         var name = $("#add_input_member").val();
         addMember(name);
-
-        // $("#alert_add_success").show();
-        // setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
     // next (member)
     $("#next_button_member").click(function() {
         if(checkMember() != "PASS") {
-            if(checkMember() == "ONE_MEMBER") alert("인원은 두 명 이상 있어야 합니다");
-            else if(checkMember() == "DUPLICATE") alert("중복된 이름을 가진 인원이 존재합니다");
+            if(checkMember() == "ONE_MEMBER") $("#alert_message").text("인원은 두 명 이상 있어야 합니다");
+            else if(checkMember() == "DUPLICATE") $("#alert_message").text("중복된 이름을 가진 인원이 존재합니다");
+
+            $("#alert_fail").show();
+            setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
             return;
         }
 
@@ -74,14 +74,17 @@ $(document).ready(function () {
     // add receipt
     $("#add_button_receipt").click(function() {
         addReceipt();
-
-        // $("#alert_add_success").show();
-        // setTimeout(function() { $("#alert_add_success").fadeOut(); }, 1500);
     });
 
     // save receipt
     $("#save_button_receipt").click(function() {
-        if(receipts.length == 0) { alert("영수증을 먼저 추가해주세요"); return; }
+        if(receipts.length == 0) {
+            $("#alert_message").text("영수증을 먼저 추가해주세요");
+
+            $("#alert_fail").show();
+            setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
+            return;
+        }
         html2canvas(document.querySelector("#list_receipt")).then(canvas => {
             saveImg(canvas.toDataURL('image/png'), "영수증.png");
         });
@@ -114,7 +117,13 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////
     // save result
     $("#save_button_result").click(function() {
-        if(receipts.length == 0) { alert("영수증을 먼저 추가해주세요"); return; }
+        if(receipts.length == 0) {
+            $("#alert_message").text("영수증을 먼저 추가해주세요");
+
+            $("#alert_fail").show();
+            setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
+            return;
+        }
         html2canvas(document.querySelector("#card_result")).then(canvas => {
             saveImg(canvas.toDataURL('image/png'), "송금표.png");
         });

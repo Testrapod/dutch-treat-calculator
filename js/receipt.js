@@ -9,7 +9,13 @@ function addReceipt() {
     var names = []; var participants = [];
     $('label[name=add_participants_label]').each(function() { names.push($(this).text()); });
     $('input:checkbox[name=add_participants_input]').each(function(i) { if(this.checked) participants.push(names[i]); });
-    if(participants.length == 0) { alert("참여자는 한 명 이상 있어야 합니다"); return; }
+    if(participants.length == 0) {
+        $("#alert_message").text("참여자는 한 명 이상 있어야 합니다");
+
+        $("#alert_fail").show();
+        setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
+        return;
+    }
     // console.log(item + " / " + payer + " / " + price + " / " + participants);
 
     receipt_count++;
@@ -60,6 +66,8 @@ function reviseReceipt(obj) {
 
     // revise receipt
     $("#revise_button_receipt").click(function() {
+        closeButton();
+
         item = $("#revise_input_receipt_item").val();
         payer = $("#revise_select_list_receipt").val();
         price = $("#revise_input_receipt_price").val();
@@ -68,17 +76,18 @@ function reviseReceipt(obj) {
         var names = []; participants = [];
         $('label[name=revise_participants_label]').each(function() { names.push($(this).text()); });
         $('input:checkbox[name=revise_participants_input]').each(function(i) { if(this.checked) participants.push(names[i]); });
-        if(participants.length == 0) { alert("참여자는 한 명 이상 있어야 합니다"); closeButton(); return; }
+        if(participants.length == 0) {
+            $("#alert_message").text("참여자는 한 명 이상 있어야 합니다");
+            $("#alert_fail").show();
+            setTimeout(function() { $("#alert_fail").fadeOut(); }, 1000);
+            return;
+        }
         // console.log(item + " / " + payer + " / " + price + " / " + participants);
 
         $(obj).children().eq(0).text(item);
         $(obj).children().eq(1).children().eq(0).children().eq(0).text(payer);
         $(obj).children().eq(1).children().eq(1).children().eq(0).text(price);
         $(obj).children().eq(1).children().eq(5).text(participants.join(" "));
-        closeButton();
-
-        // $("#alert_revise_success").show();
-        // setTimeout(function() { $("#alert_revise_success").fadeOut(); }, 1500);
     });
 
     // delete receipt
