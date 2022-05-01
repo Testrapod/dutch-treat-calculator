@@ -4,10 +4,12 @@ function addReceipt() {
     var item = $("#add_input_receipt_item").val();
     var payer = $("#add_select_list_receipt").val();
     var price = $("#add_input_receipt_price").val();
+    if(isEmpty(price)) price = 0;
 
     var names = []; var participants = [];
     $('label[name=add_participants_label]').each(function() { names.push($(this).text()); });
     $('input:checkbox[name=add_participants_input]').each(function(i) { if(this.checked) participants.push(names[i]); });
+    if(participants.length == 0) { alert("참여자는 한 명 이상 있어야 합니다"); return; }
     // console.log(item + " / " + payer + " / " + price + " / " + participants);
 
     receipt_count++;
@@ -61,10 +63,12 @@ function reviseReceipt(obj) {
         item = $("#revise_input_receipt_item").val();
         payer = $("#revise_select_list_receipt").val();
         price = $("#revise_input_receipt_price").val();
+        if(isEmpty(price)) price = 0;
 
         var names = []; participants = [];
         $('label[name=revise_participants_label]').each(function() { names.push($(this).text()); });
         $('input:checkbox[name=revise_participants_input]').each(function(i) { if(this.checked) participants.push(names[i]); });
+        if(participants.length == 0) { alert("참여자는 한 명 이상 있어야 합니다"); closeButton(); return; }
         // console.log(item + " / " + payer + " / " + price + " / " + participants);
 
         $(obj).children().eq(0).text(item);
