@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     // save receipt
     $("#save_button_receipt").click(function() {
-        if(receipts.length == 0) {
+        if(receipt_count < 1) {
             $("#alert_message").text("영수증을 먼저 추가해주세요");
 
             $("#alert_fail").show();
@@ -117,7 +117,7 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////
     // save result
     $("#save_button_result").click(function() {
-        if(receipts.length == 0) {
+        if(receipt_count < 1) {
             $("#alert_message").text("영수증을 먼저 추가해주세요");
 
             $("#alert_fail").show();
